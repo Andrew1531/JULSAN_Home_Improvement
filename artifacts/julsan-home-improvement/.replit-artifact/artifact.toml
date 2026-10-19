@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "JulSan Home Improvement"
+description = "A lead-generation website for JulSan Home Improvement, highlighting kitchen and bathroom renovations and general contracting services across Northern New Jersey, with clear ways to request an estimate."
+version = "1.0.0"
+id = "artifacts/julsan-home-improvement"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19675
+
+[services.development]
+run = "pnpm --filter @workspace/julsan-home-improvement run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/julsan-home-improvement", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/julsan-home-improvement/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19675"
+BASE_PATH = "/"

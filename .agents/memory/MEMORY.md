@@ -1,0 +1,1 @@
+- [JulSan service scope](julsan-business-context.md) — JulSan serves Northern New Jersey with kitchen, bathroom, and general contracting services.
